@@ -4,7 +4,7 @@
 sudo apt install php nodejs npm adb scrcpy.
 
 
-#Required
+# Required
 
 ADB ( Android Sdk )
 
@@ -18,6 +18,8 @@ git clone https://github.com/itechsking/Androidpin.git
 cd Androidpin
 
 chmod +x AndroidPIN.sh
+bash AndroidPIN.sh
+or ./AndroidPIN.sh
 
 YouTube Videos :- https://www.youtube.com/watch?v=PcoQkSPLUrE
 
