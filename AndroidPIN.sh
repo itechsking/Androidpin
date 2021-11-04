@@ -85,7 +85,7 @@ clear
   14.Get WebCam {Over Internet}
   99.Exit
   ${n}"
-  read -p "senpai@tegalsec:~# " select
+  read -p "itechsking@:~# " select
 if [[ $select == 1 ]]; then
   # remove old version
   rm -f "${path}/Androidpin" >/dev/null 2>&1
